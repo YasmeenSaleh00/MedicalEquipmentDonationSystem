@@ -57,6 +57,22 @@ namespace MedicalEquipmentDonationSystem.Controllers
         /// <summary>
         /// This endpoint enables the user to register into the system
         /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     POST User/SignUp
+        ///     {        
+        ///       "firstName": "Samar",
+        ///       "lastName": "Ahmad",
+        ///       "email": "user12@gmail.com",
+        ///       "password": "123etdfs",
+        ///       "birthDate": "1999-11-03",
+        ///       "phone": "0788257909",
+        ///       "nationalityId": 1,
+        ///       "genderId": 6,
+        ///       "adress": "Jordan"
+       ///    }
+        /// </remarks>
 
         [HttpPost]
         [Route("[action]")]
@@ -83,7 +99,24 @@ namespace MedicalEquipmentDonationSystem.Controllers
         /// <summary>
         /// This endpoint enables the user to Add Their Products
         /// </summary>
-
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     POST User/SubmitProduct
+        ///     {        
+        ///       "nameOfProudct": "Electric Wheelchair",
+        ///       "nameOfProudctAr": "كرسي متحرك كهربائي",
+        ///        "brandName": "MobilityPlus",
+        ///        "description": "A durable electric wheelchair designed for individuals with mobility challenges. It comes with a rechargeable battery and adjustable seat.",
+        ///        "descriptionAr": "كرسي متحرك كهربائي متين مصمم للأشخاص ذوي التحديات الحركية. يأتي مع بطارية قابلة لإعادة الشحن ومقعد قابل للتعديل.",
+        ///       "imagePath":"",
+        ///       "countryOfOrigin": "Germany",
+        ///       "manufactureDate": "2023-06-15",
+        ///        "categoryId": 3,
+        ///        "brandId": 2,
+        ///         "userId": 5
+        ///    }
+        /// </remarks>
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> SubmitProduct([FromHeader] string token,[FromBody] CreateProductDTO input)
@@ -112,6 +145,18 @@ namespace MedicalEquipmentDonationSystem.Controllers
         /// <summary>
         /// This endpoint enables the user to Request product
         /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     POST User/RequestProduct
+        ///     {        
+        ///       "userId": 0,
+        ///       "requsterName": "string",
+        ///       "phone": "string",
+        ///       "productId": 0,
+        ///        "adress": "string"
+        ///    }
+        /// </remarks>
 
         [HttpPost]
         [Route("[action]")]
@@ -140,6 +185,18 @@ namespace MedicalEquipmentDonationSystem.Controllers
         /// <summary>
         /// This endpoint enables the user to Add Testimonial
         /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     POST User/CreateTestimonial
+        ///     {        
+        ///       "description": ""Great service and very helpful in providing the necessary equipment."",
+        ///        "descriptionAr": "خدمة رائعة ومفيدة جدًا في توفير المعدات اللازمة",
+        ///         "testimonialTypeId": 11,
+        ///        "userId": 2
+        ///    }
+        /// </remarks>
+
 
         [HttpPost]
         [Route("[action]")]

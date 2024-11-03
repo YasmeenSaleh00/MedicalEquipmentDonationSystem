@@ -229,6 +229,17 @@ namespace MedicalEquipmentDonationSystem.Controllers
         /// <summary>
         /// This EndPoint To Create New Category in system 
         /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     POST Admin/CreateCategory
+        ///     {        
+        ///       "name": "Hospital Furniture",
+        ///       "nameAr": "أثاث المستشفيات",
+        ///       "description": "Furniture specifically designed for medical use in hospitals or clinics, including hospital beds, overbed tables, and patient chairs.",
+        ///       "descriptionAr": "الأثاث المصمم خصيصاً للاستخدام الطبي في المستشفيات أو العيادات"
+        ///     }
+        /// </remarks>
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> CreateCategory([FromHeader] string token, [FromBody] CreateCategoryDTO input)
@@ -256,6 +267,16 @@ namespace MedicalEquipmentDonationSystem.Controllers
         /// <summary>
         /// This EndPoint To Create New Transaction in system 
         /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     POST Admin/CreateTransaction
+        ///     {        
+        ///       "orderId": 4,
+        ///       "deliveryInfo": "Irbid ",
+        ///       "deliveryDate": "2024-11-15"
+        ///     }
+        /// </remarks>
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> CreateTransaction([FromHeader] string token, [FromBody] CreateTransactionDTO input)

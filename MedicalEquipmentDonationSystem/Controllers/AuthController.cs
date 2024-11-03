@@ -17,6 +17,10 @@ namespace MedicalEquipmentDonationSystem.Controllers
             _authanticationService = authanticationService;
 
         }
+        /// <summary>
+        /// This EndPoint to LogIn 
+        /// </summary>
+        
         [HttpPost]
         public async Task<IActionResult> LogIn([FromBody] LogInDTO input)
         {
