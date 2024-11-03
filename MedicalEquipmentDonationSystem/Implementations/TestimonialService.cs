@@ -48,10 +48,10 @@ namespace MedicalEquipmentDonationSystem.Implementations
                          {
                              Id = li.Id,
                              TestimonialType = p.Value,
-                             TestimonialTypeAr = p.Value,   
+                             TestimonialTypeAr = p.ValueAr,
                              Description = li.Description,
                              DescriptionAr = li.DescriptionAr,
-                             CreationDate =li.CreationDate.ToShortDateString(), 
+                             CreationDate = li.CreationDate.ToShortDateString(),
 
                          };
             return await result.ToListAsync();

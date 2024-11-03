@@ -12,5 +12,6 @@
         public int GenderId { get; set; }
         public string Adress { get; set; }
         public int UserTypeId { get; set; }
+        public bool isDeleted { get; set; }
     }
 }

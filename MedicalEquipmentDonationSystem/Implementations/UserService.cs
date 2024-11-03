@@ -34,7 +34,8 @@ namespace MedicalEquipmentDonationSystem.Implementations
                              BirthDate = li.BirthDate,
                              GenderId = li.GenderId,
                              NationalityId = li.NationalityId,
-                             UserTypeId = li.UserTypeId,    
+                             UserTypeId = li.UserTypeId,   
+                             isDeleted = li.IsDeleted,  
                          };
             return await result.ToListAsync();
         }
