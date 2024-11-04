@@ -32,7 +32,7 @@ namespace MedicalEquipmentDonationSystem.Implementations
                                               PersonId = p.Id.ToString(),
                                               Role = li.Value.ToString(),
                                           }).FirstOrDefaultAsync();
-                    return authUser != null ? await TokenHelper.GenerateToken(authUser.PersonId, authUser.Role) : "Authantication Failed";
+                    return authUser != null ? await TokenHelper.GenerateToken(authUser.PersonId, authUser.Role) : "Authentication Failed";
                 }
                 else
                 {

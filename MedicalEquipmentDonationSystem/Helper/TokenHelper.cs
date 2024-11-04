@@ -23,6 +23,7 @@ namespace MedicalEquipmentDonationSystem.Helper
                 }),
                 //تحديد مدة session
                 Expires = DateTime.Now.AddHours(3),
+                //باستخدام خوارزمية HmacSha256
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey)
                 , SecurityAlgorithms.HmacSha256Signature)
             };

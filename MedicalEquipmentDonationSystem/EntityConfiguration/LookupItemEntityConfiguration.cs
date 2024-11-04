@@ -20,7 +20,6 @@ namespace MedicalEquipmentDonationSystem.EntityConfiguration
 
           
             builder.ToTable(x => x.HasCheckConstraint("CH_ValueAr_Length", "Len(ValueAr) >= 3"));
-            //builder.ToTable(x => x.HasCheckConstraint("CH_Value_Length", "Len(Value) >= 3"));
             //relation with user
             builder.HasMany<Users>().WithOne().HasForeignKey(x => x.NationalityId).OnDelete(DeleteBehavior.NoAction);
             builder.HasMany<Users>().WithOne().HasForeignKey(x => x.GenderId).OnDelete(DeleteBehavior.NoAction);

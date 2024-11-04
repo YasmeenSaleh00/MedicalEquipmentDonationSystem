@@ -96,7 +96,7 @@ namespace MedicalEquipmentDonationSystem.Controllers
 
         [HttpGet]
         [Route("[action]")]
-        public async Task<IActionResult> GetCategories([FromHeader] string token    )
+        public async Task<IActionResult> GetCategories([FromHeader] string token )
         {
             Log.Information("Operation of Get Categories Has Been Started");
             try

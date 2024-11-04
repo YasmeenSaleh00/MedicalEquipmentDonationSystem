@@ -68,7 +68,7 @@ namespace MedicalEquipmentDonationSystem.Implementations
 
                     }if(input.IsDeleted != null)
                     {
-                        result.IsDeleted = input.IsDeleted;
+                        result.IsDeleted =(bool) input.IsDeleted;
                         result.ModificationDate= DateTime.Now;  
                     }
                     _dbContext.Update(result);

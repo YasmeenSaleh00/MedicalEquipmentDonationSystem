@@ -11,7 +11,7 @@
         public string CountryOfOrigin { get; set; }
         public DateOnly ManufactureDate { get; set; }
         public int CategoryId { get; set; }
-        //public int StatusProductId { get; set; }
+    
         public int BrandId { get; set; }
         public int UserId { get; set; }
     }

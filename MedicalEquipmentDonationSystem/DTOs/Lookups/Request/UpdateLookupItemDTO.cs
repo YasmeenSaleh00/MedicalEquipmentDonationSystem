@@ -5,6 +5,6 @@
         public int Id { get; set; }
         public string? Value { get; set; }
         public string? ValueAr { get; set; }
-        public bool IsDeleted { get; set; }
+        public bool? IsDeleted { get; set; }
     }
 }

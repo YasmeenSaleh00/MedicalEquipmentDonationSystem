@@ -7,7 +7,6 @@
     public string phone { get; set; }
      public int  ProductId { get; set; }
     
-        //public int StatusOrderId { get; set; }
     public string Adress { get; set; }
     }
 }

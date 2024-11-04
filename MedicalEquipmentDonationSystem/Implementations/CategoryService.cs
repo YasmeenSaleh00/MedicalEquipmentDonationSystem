@@ -102,7 +102,7 @@ namespace MedicalEquipmentDonationSystem.Implementations
                 }
                 else
                 {
-                    throw new Exception($"No Id  like the given {input.Id}");
+                    throw new Exception($"No Id  like the given Id : {input.Id}");
                 }
             }
             else { throw new Exception("At Least Must Pass The Id Value"); }

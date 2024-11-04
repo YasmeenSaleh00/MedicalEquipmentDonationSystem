@@ -88,6 +88,7 @@ namespace MedicalEquipmentDonationSystem.Implementations
                           UserId = li.UserId,
                           BrandId = li.BrandId,
                           Description = li.Description,
+                          DescriptionAr = li.DescriptionAr,
                           StatusProductId = li.StatusProductId,
 
                       };
@@ -110,6 +111,7 @@ namespace MedicalEquipmentDonationSystem.Implementations
                           ImagePath = li.ImagePath,
                           BrandId = li.BrandId,
                           Description = li.Description,
+                          DescriptionAr = li.DescriptionAr, 
                           StatusPrductId = li.StatusProductId,
 
                       };

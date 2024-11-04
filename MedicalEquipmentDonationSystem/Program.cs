@@ -51,7 +51,7 @@ builder.Services.AddScoped<ITestimonialService, TestimonialService>();
 var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
 //string loggerPath = configuration.GetSection("LoggerPath").Value;
 Serilog.Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(configuration).
-                WriteTo.File(Path.Combine(Directory.GetCurrentDirectory(), "Logs/HRLogging.txt"), rollingInterval: RollingInterval.Day).
+                WriteTo.File(Path.Combine(Directory.GetCurrentDirectory(), "Logs/MELogging.txt"), rollingInterval: RollingInterval.Day).
                 CreateLogger();
 
 var app = builder.Build();
