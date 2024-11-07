@@ -128,7 +128,7 @@ namespace MedicalEquipmentDonationSystem.Controllers
                 {
                     return Unauthorized("You Not Authorized For Create Product ");
                 }
-                await _productService.CreateProduct(input);
+                await _productService.CreateProduct(input ,token);
                 Log.Information($"New Product Called {input.NameOfProudct} add to DB");
                 return StatusCode(201, "New product  Created");
 
@@ -169,7 +169,7 @@ namespace MedicalEquipmentDonationSystem.Controllers
                 {
                     return Unauthorized("You Not Authorized For Request Product ");
                 }
-                await _orderService.CreateOrder(input);
+                await _orderService.CreateOrder(input , token);
                 Log.Information($"New Order add to DB");
                 return StatusCode(201, "New Order  Created");
 
@@ -209,7 +209,7 @@ namespace MedicalEquipmentDonationSystem.Controllers
                 {
                     return Unauthorized("You Not Authorized For Create Testimonial ");
                 }
-                await _testimonialService.CreateTestimonial(input);
+                await _testimonialService.CreateTestimonial(input , token);
                 Log.Information($"New Testimonial  add to DB");
                 return StatusCode(201, "New Testimonial  Created");
 

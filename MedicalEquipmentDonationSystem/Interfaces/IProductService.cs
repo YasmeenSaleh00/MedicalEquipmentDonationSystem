@@ -5,7 +5,7 @@ namespace MedicalEquipmentDonationSystem.Interfaces
 {
     public interface IProductService
     {
-        Task CreateProduct(CreateProductDTO input);
+        Task CreateProduct(CreateProductDTO input , string token);
         Task<List<ProductDTO>> GetProducByCategory(int categoryId);
         Task<List<PrpductByBrandDTO>> GetProductViaBrand(int brandId);
         Task ManageStatus (int productId , bool IsDeleted);

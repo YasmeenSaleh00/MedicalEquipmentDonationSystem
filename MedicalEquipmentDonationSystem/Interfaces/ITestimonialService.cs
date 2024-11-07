@@ -5,7 +5,7 @@ namespace MedicalEquipmentDonationSystem.Interfaces
 {
     public interface ITestimonialService
     {
-        Task CreateTestimonial(CreateTestimonialDTO input);
+        Task CreateTestimonial(CreateTestimonialDTO input , string token);
         Task<List<TestimonialViaTypeDTO>> GetTestimonailByType(int TestimonialTypeId);
         Task ManageActivationStatus(int Id ,bool IsDeleted);
 

@@ -2,6 +2,7 @@
 using MedicalEquipmentDonationSystem.DTOs.Order.Request;
 using MedicalEquipmentDonationSystem.DTOs.Order.Response;
 using MedicalEquipmentDonationSystem.Entities;
+using MedicalEquipmentDonationSystem.Helper;
 using MedicalEquipmentDonationSystem.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
@@ -16,16 +17,17 @@ namespace MedicalEquipmentDonationSystem.Implementations
             _context = context; 
 
         }
-        public async Task CreateOrder(CreateOrderDTO input)
+        public async Task CreateOrder(CreateOrderDTO input, string token)
         {
             if (input != null)
             {
                 var product = await _context.Products.FirstOrDefaultAsync(x => x.Id == input.ProductId);
                 if (product.StatusProductId == 8) 
                 {
+                    var userId = TokenHelper.GetPersonIdFromToken(token);
                     Order order = new Order()
                     {
-                        UserId = input.UserId,
+                        UserId =int.Parse( userId),
                         RequsterName = input.RequsterName,
                         Phone = input.phone,
                         Adress = input.Adress,

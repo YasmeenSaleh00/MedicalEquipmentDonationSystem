@@ -46,6 +46,7 @@ builder.Services.AddScoped<IProductService , ProductService>();
 builder.Services.AddScoped<IOrderService, OrderService>();  
 builder.Services.AddScoped<ITransactionService, TransactionService>();  
 builder.Services.AddScoped<ITestimonialService, TestimonialService>();
+//builder.Services.AddScoped<IHttpContextAccessor,HttpContextAccessor>();
 
 //Configure Serilog 
 var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();

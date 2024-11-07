@@ -2,6 +2,7 @@
 using MedicalEquipmentDonationSystem.DTOs.Testimonial.Request;
 using MedicalEquipmentDonationSystem.DTOs.Testimonial.Response;
 using MedicalEquipmentDonationSystem.Entities;
+using MedicalEquipmentDonationSystem.Helper;
 using MedicalEquipmentDonationSystem.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,16 +17,19 @@ namespace MedicalEquipmentDonationSystem.Implementations
 
         }
 
-        public async Task CreateTestimonial(CreateTestimonialDTO input)
+        public async Task CreateTestimonial(CreateTestimonialDTO input  , string token)
         {
             if (input != null)
             {
+                var userId = TokenHelper.GetPersonIdFromToken(token);
                 Testimonial testimonial = new Testimonial()
                 {
+                    UserId = int.Parse(userId),
+
                     Description = input.Description,
                     DescriptionAr  = input.DescriptionAr,
                     TestimonialTypeId = input.TestimonialTypeId,
-                    UserId = input.UserId,
+                   
                 };
                 _context.Add(testimonial);
                 await _context.SaveChangesAsync();

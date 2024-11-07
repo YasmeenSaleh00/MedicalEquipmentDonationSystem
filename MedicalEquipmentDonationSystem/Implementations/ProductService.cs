@@ -3,6 +3,7 @@ using MedicalEquipmentDonationSystem.DTOs.Lookups.Response;
 using MedicalEquipmentDonationSystem.DTOs.Product.Request;
 using MedicalEquipmentDonationSystem.DTOs.Product.Response;
 using MedicalEquipmentDonationSystem.Entities;
+using MedicalEquipmentDonationSystem.Helper;
 using MedicalEquipmentDonationSystem.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,7 +16,7 @@ namespace MedicalEquipmentDonationSystem.Implementations
         {
             _context = context;
         }
-        public async Task CreateProduct(CreateProductDTO input)
+        public async Task CreateProduct(CreateProductDTO input, string token )
         {
             if (input != null)
             {
@@ -40,8 +41,11 @@ namespace MedicalEquipmentDonationSystem.Implementations
 
                 if (!string.IsNullOrEmpty(input.NameOfProudct) || !string.IsNullOrEmpty(input.NameOfProudctAr))
                 {
+
+                    var userId = TokenHelper.GetPersonIdFromToken(token);
                     Product product = new Product()
                     {
+                        UserId = int.Parse(userId),
                         NameOfProudct = input.NameOfProudct,
                         NameOfProudctAr = input.NameOfProudctAr,
                         CountryOfOrigin = input.CountryOfOrigin,
@@ -52,7 +56,7 @@ namespace MedicalEquipmentDonationSystem.Implementations
                         ManufactureDate = input.ManufactureDate,
                         StatusProductId = 8,
                         ImagePath = input.ImagePath,
-                        UserId = input.UserId,
+                       
 
                     };
 

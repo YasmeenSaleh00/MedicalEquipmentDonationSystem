@@ -13,7 +13,7 @@ namespace MedicalEquipmentDonationSystem.Helper
             var tokenHandler = new JwtSecurityTokenHandler();
             //عباره عن تجهيز ل secret key
             var tokenKey = Encoding.UTF8.GetBytes("LongSecrectStringForModulekodestartppopopopsdfjnshbvhueFGDKJSFBYJDSAGVYKDSGKFUYDGASYGFskc vhHJVCBYHVSKDGHASVBCL");
-          //تجهيز claims 
+            //تجهيز claims 
             var tokenDescriptior = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
@@ -45,7 +45,18 @@ namespace MedicalEquipmentDonationSystem.Helper
             }
             return false;
         }
-    }
+        // دالة جديدة لاستخراج PersonId من التوكن
+        public static string GetPersonIdFromToken(string tokenString)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var jwtToken = tokenHandler.ReadJwtToken(tokenString);
 
+            // استرجاع الـ PersonId من claims
+            var personIdClaim = jwtToken.Claims.FirstOrDefault(claim => claim.Type == "PersonId");
+            return personIdClaim?.Value;
+        }
+
+    }
 }
+
 
