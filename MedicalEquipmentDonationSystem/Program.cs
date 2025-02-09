@@ -55,6 +55,18 @@ Serilog.Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(configurat
                 WriteTo.File(Path.Combine(Directory.GetCurrentDirectory(), "Logs/MELogging.txt"), rollingInterval: RollingInterval.Day).
                 CreateLogger();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
+        });
+});
+
+
 var app = builder.Build();
 
 
@@ -77,7 +89,7 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = "/Images"
 });
 
-
+app.UseCors("AllowAll");
 app.UseAuthorization();
 
 app.MapControllers();

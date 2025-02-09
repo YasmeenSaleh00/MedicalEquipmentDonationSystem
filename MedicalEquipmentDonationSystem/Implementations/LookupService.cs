@@ -34,6 +34,7 @@ namespace MedicalEquipmentDonationSystem.Implementations
         }
 
         public async Task<List<LookupTypeDTO>> GetLookupType()
+        //LINQ query syntax 
         {
             var result = from li in _dbContext.LookupTypes
                          select new LookupTypeDTO
@@ -52,6 +53,7 @@ namespace MedicalEquipmentDonationSystem.Implementations
         {
             if (input != null)
             {
+                // IQueryable approach
                 var result = await _dbContext.LookupItems.FirstOrDefaultAsync(x => x.Id == input.Id);
                 if (result != null)
                 {
